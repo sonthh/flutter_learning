@@ -1,8 +1,8 @@
 import 'package:mobile/modules/auth/logic/auth.model.dart';
 import 'package:mobile/modules/auth/logic/auth.reducer.dart';
-import 'package:mobile/modules/users/logic/user.reducer.dart';
+import 'package:mobile/modules/users/logic/users_item.reducer.dart';
 import 'package:mobile/modules/users/logic/users.model.dart';
-import 'package:mobile/modules/users/logic/users.reducer.dart';
+import 'package:mobile/modules/users/logic/users_list.reducer.dart';
 // import 'package:redux/redux.dart';
 import 'package:meta/meta.dart';
 

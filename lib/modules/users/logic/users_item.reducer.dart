@@ -6,6 +6,7 @@ import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 import 'package:http/http.dart' as http;
 
+
 final Reducer<UserState> userReducer =
     combineReducers(<UserState Function(UserState, dynamic)>[
   TypedReducer<UserState, SetLoading>(setLoading),

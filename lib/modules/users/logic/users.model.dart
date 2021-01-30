@@ -19,11 +19,13 @@ class User {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'username': username,
-        'email': email,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'username': username,
+      'email': email,
+    };
+  }
 }
 
 @immutable
@@ -70,11 +72,13 @@ class UsersState {
   @override
   int get hashCode => isLoading.hashCode ^ users.hashCode;
 
-  Map<String, dynamic> toJson() => {
-        'isLoading': isLoading,
-        'error': error,
-        'users': users,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      'isLoading': isLoading,
+      'error': error,
+      'users': users,
+    };
+  }
 }
 
 @immutable
@@ -121,9 +125,11 @@ class UserState {
   @override
   int get hashCode => isLoading.hashCode ^ user.hashCode;
 
-  Map<String, dynamic> toJson() => {
-        'isLoading': isLoading,
-        'error': error,
-        'user': user,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      'isLoading': isLoading,
+      'error': error,
+      'user': user,
+    };
+  }
 }
