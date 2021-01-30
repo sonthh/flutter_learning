@@ -8,26 +8,27 @@ import 'package:http/http.dart' as http;
 
 final Reducer<UsersState> usersReducer =
     combineReducers(<UsersState Function(UsersState, dynamic)>[
-  TypedReducer<UsersState, SetLoading>(setLoading),
-  TypedReducer<UsersState, SetUsers>(setUsers),
+  TypedReducer<UsersState, FindAllUserRequest>(findAllUserRequest),
+  TypedReducer<UsersState, FindAllUserSuccess>(findAllUserSuccess),
+  TypedReducer<UsersState, FindAllUserFailure>(findAllUserFailure),
 ]);
 
-UsersState setLoading(UsersState state, SetLoading action) {
-  state = state.copyWith(isLoading: action.isLoading);
-
-  return state;
+UsersState findAllUserRequest(UsersState state, FindAllUserRequest action) {
+  return state.copyWith(isLoading: action.isLoading);
 }
 
-UsersState setUsers(UsersState state, SetUsers action) {
-  state = state.copyWith(users: action.users);
+UsersState findAllUserSuccess(UsersState state, FindAllUserSuccess action) {
+  return state.copyWith(isLoading: action.isLoading, users: action.users);
+}
 
-  return state;
+UsersState findAllUserFailure(UsersState state, FindAllUserFailure action) {
+  return state.copyWith(isLoading: action.isLoading, error: action.error);
 }
 
 ThunkAction findAllUsersAction() {
   return (Store store) async {
     try {
-      await store.dispatch(SetLoading(true));
+      await store.dispatch(FindAllUserRequest(isLoading: true));
 
       final client = http.Client();
       final url = 'https://jsonplaceholder.typicode.com/users';
@@ -36,10 +37,9 @@ ThunkAction findAllUsersAction() {
       final Iterable json = jsonDecode(response.body);
       List<User> users = List.from(json.map((model) => User.fromJson(model)));
 
-      await store.dispatch(SetUsers(users));
-      await store.dispatch(SetLoading(false));
+      await store.dispatch(FindAllUserSuccess(isLoading: false, users: users));
     } catch (e, stackTrace) {
-      store.dispatch(SetLoading(false));
+      await store.dispatch(FindAllUserFailure(isLoading: false, error: true));
       print(e);
       print(stackTrace);
     }
