@@ -36,6 +36,7 @@ class ViewModel {
 }
 
 class UserDetailScreen extends StatelessWidget {
+  static final String routeName = 'users.detail';
   final int id;
 
   UserDetailScreen({@required this.id});

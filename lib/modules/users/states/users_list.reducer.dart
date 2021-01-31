@@ -19,7 +19,9 @@ UsersState findAllUserRequest(UsersState state, FindAllUserRequest action) {
 }
 
 UsersState findAllUserSuccess(UsersState state, FindAllUserSuccess action) {
-  return state.copyWith(isLoading: action.isLoading, users: action.users);
+  final users = state.users;
+  users.addAll(action.users);
+  return state.copyWith(isLoading: action.isLoading, users: users);
 }
 
 UsersState findAllUserFailure(UsersState state, FindAllUserFailure action) {

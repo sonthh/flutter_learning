@@ -3,14 +3,14 @@ import 'package:mobile/modules/users/screens/users_detail.screen.dart';
 import 'package:mobile/modules/users/screens/users_list.screen.dart';
 
 Route<Widget> onGenerateRoute(RouteSettings settings) {
-  if (settings.name == 'users.list') {
+  if (settings.name == UserListScreen.routeName) {
     return MaterialPageRoute(
       builder: (context) {
         return UserListScreen();
       },
     );
   }
-  if (settings.name == 'users.detail') {
+  if (settings.name == UserDetailScreen.routeName) {
     final UserDetailScreenArgs args = settings.arguments;
 
     return MaterialPageRoute(

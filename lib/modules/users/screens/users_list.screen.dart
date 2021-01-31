@@ -30,13 +30,29 @@ class ViewModel {
   }
 }
 
-class UserListScreen extends StatelessWidget {
+class UserListScreen extends StatefulWidget {
+  static final routeName = 'users.list';
+  @override
+  UserListScreenState createState() => UserListScreenState();
+}
+
+class UserListScreenState extends State<UserListScreen> {
+  ScrollController scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, ViewModel>(
       onInit: (Store<AppState> store) async {
         EasyLoading.show();
-        ViewModel.fromStore(store).findAll();
+        final viewModel = ViewModel.fromStore(store);
+        viewModel.findAll();
+
+        scrollController.addListener(() {
+          if (scrollController.position.pixels ==
+              scrollController.position.maxScrollExtent) {
+            viewModel.findAll();
+          }
+        });
       },
       converter: (Store<AppState> store) {
         return ViewModel.fromStore(store);
@@ -92,7 +108,7 @@ class UserListScreen extends StatelessWidget {
                     onRefresh: () async {
                       viewModel.findAll();
                     },
-                    child: UserListWidget(users: viewModel.users),
+                    child: UserListWidget(users: viewModel.users, controller: scrollController,),
                   ),
                 ),
               )
