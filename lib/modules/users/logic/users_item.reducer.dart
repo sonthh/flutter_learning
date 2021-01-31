@@ -1,13 +1,11 @@
-import 'dart:convert';
 
-import 'package:mobile/modules/configs/configs.dart';
 import 'package:mobile/modules/users/logic/users.action.dart';
 import 'package:mobile/modules/users/logic/users.model.dart';
+import 'package:mobile/modules/users/services/users.services.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
-import 'package:http/http.dart' as http;
 
-final config = ConfigService();
+final usersService = UsersService();
 
 final Reducer<UserState> userReducer =
     combineReducers(<UserState Function(UserState, dynamic)>[
@@ -33,17 +31,12 @@ ThunkAction findOneUserAction(int id) {
     try {
       await store.dispatch(FindOneUserRequest(isLoading: true));
 
-      final client = http.Client();
-      final url = '${config.apiUrl}/users/$id';
-      final response = await client.get(url);
-
-      User user = User.fromJson(jsonDecode(response.body));
+      User user = await usersService.findOne(id);
 
       await store.dispatch(FindOneUserSuccess(isLoading: false, user: user));
-    } catch (e, stackTrace) {
+    } catch (e) {
       await store.dispatch(FindOneUserFailure(isLoading: false, error: true));
       print(e);
-      print(stackTrace);
     }
   };
 }
