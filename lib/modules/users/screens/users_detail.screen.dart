@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:mobile/modules/app/app.model.dart';
 import 'package:mobile/modules/users/logic/users_item.reducer.dart';
 import 'package:mobile/modules/users/logic/users.model.dart';
-import 'package:mobile/store/store.dart';
 import 'package:redux/redux.dart';
 
 class UserDetailScreenArgs {
