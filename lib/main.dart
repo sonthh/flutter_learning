@@ -13,21 +13,34 @@ import 'package:redux_dev_tools/redux_dev_tools.dart';
 
 void main() async {
   await ConfigService.load();
+  final config = ConfigService();
 
-  final remoteDevtools = RemoteDevToolsMiddleware('0.0.0.0:8000');
-  await remoteDevtools.connect();
+  // REDUX DEVTOOLS
+  if (config.mode == 'DEBUG') {
+    final remoteDevtools = RemoteDevToolsMiddleware(config.reduxDevtoolsUrl);
+    await remoteDevtools.connect();
 
-  final store = new DevToolsStore<AppState>(
+    final store = new DevToolsStore<AppState>(
+      appReducer,
+      initialState: new AppState.initial(),
+      middleware: [
+        thunkMiddleware,
+        remoteDevtools,
+      ],
+    );
+    remoteDevtools.store = store;
+    runApp(MyApp(store: store));
+    return;
+  }
+
+  // WITHOUT REDUX DEVTOOLS
+  final store = new Store<AppState>(
     appReducer,
     initialState: new AppState.initial(),
     middleware: [
       thunkMiddleware,
-      remoteDevtools,
     ],
   );
-
-  remoteDevtools.store = store;
-
   runApp(MyApp(store: store));
 }
 

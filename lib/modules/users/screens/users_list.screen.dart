@@ -49,7 +49,7 @@ class UserListScreen extends StatelessWidget {
       builder: (BuildContext context, ViewModel viewModel) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('User list'),
+            title: Text('User management'),
           ),
           drawer: Drawer(
             child: ListView(
@@ -90,7 +90,6 @@ class UserListScreen extends StatelessWidget {
                 child: Expanded(
                   child: RefreshIndicator(
                     onRefresh: () async {
-                      EasyLoading.show();
                       viewModel.findAll();
                     },
                     child: UserListWidget(users: viewModel.users),
