@@ -60,18 +60,6 @@ class UsersState {
     );
   }
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UsersState &&
-          runtimeType == other.runtimeType &&
-          isLoading == other.isLoading &&
-          error == other.error &&
-          users == other.users;
-
-  @override
-  int get hashCode => isLoading.hashCode ^ users.hashCode;
-
   Map<String, dynamic> toJson() {
     return {
       'isLoading': isLoading,
@@ -112,18 +100,6 @@ class UserState {
       user: user ?? this.user,
     );
   }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UserState &&
-          runtimeType == other.runtimeType &&
-          isLoading == other.isLoading &&
-          error == other.error &&
-          user == other.user;
-
-  @override
-  int get hashCode => isLoading.hashCode ^ user.hashCode;
 
   Map<String, dynamic> toJson() {
     return {

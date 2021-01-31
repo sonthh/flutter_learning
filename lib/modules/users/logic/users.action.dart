@@ -21,21 +21,23 @@ class FindAllUserFailure {
   final bool error;
 }
 
-class SetLoading {
-  SetLoading(this.isLoading);
+/* user single result */
+class FindOneUserRequest {
+  FindOneUserRequest({this.isLoading});
 
   final bool isLoading;
 }
 
-class SetUsers {
-  SetUsers(this.users);
+class FindOneUserSuccess {
+  FindOneUserSuccess({this.isLoading, this.user});
 
-  final List<User> users;
+  final bool isLoading;
+  final User user;
 }
 
-/* user single result */
-class SetUser {
-  SetUser(this.user);
+class FindOneUserFailure {
+  FindOneUserFailure({this.isLoading, this.error});
 
-  final User user;
+  final bool isLoading;
+  final bool error;
 }

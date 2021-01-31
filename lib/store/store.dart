@@ -3,24 +3,7 @@ import 'package:mobile/modules/auth/logic/auth.reducer.dart';
 import 'package:mobile/modules/users/logic/users_item.reducer.dart';
 import 'package:mobile/modules/users/logic/users.model.dart';
 import 'package:mobile/modules/users/logic/users_list.reducer.dart';
-// import 'package:redux/redux.dart';
 import 'package:meta/meta.dart';
-
-// final store = Store<AppState>(
-//   appReducer,
-//   initialState: new AppState.initial(),
-//   middleware: [thunkMiddleware],
-// );
-// final remoteDevtools = RemoteDevToolsMiddleware('192.168.31.206:8000');
-
-// final store = new DevToolsStore<AppState>(
-//   appReducer,
-//   initialState: new AppState.initial(),
-//   middleware: [
-//     thunkMiddleware,
-//     remoteDevtools,
-//   ],
-// );
 
 AppState appReducer(AppState state, dynamic action) {
   return AppState(
@@ -62,18 +45,11 @@ class AppState {
     );
   }
 
-  @override
-  int get hashCode =>
-      //isLoading.hash Code ^
-      auth.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is AppState && auth == other.auth;
-
-  Map<String, dynamic> toJson() => {
-        'auth': auth,
-        'users': users,
-        'user': user,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      'auth': auth,
+      'users': users,
+      'user': user,
+    };
+  }
 }

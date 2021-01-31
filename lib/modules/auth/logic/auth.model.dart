@@ -32,21 +32,11 @@ class AuthState {
     );
   }
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is AuthState &&
-          runtimeType == other.runtimeType &&
-          isLoading == other.isLoading &&
-          error == other.error &&
-          user == other.user;
-
-  @override
-  int get hashCode => isLoading.hashCode ^ user.hashCode;
-
-  Map<String, dynamic> toJson() => {
-        'isLoading': isLoading,
-        'error': error,
-        'user': user,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      'isLoading': isLoading,
+      'error': error,
+      'user': user,
+    };
+  }
 }

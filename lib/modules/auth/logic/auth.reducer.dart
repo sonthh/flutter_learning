@@ -3,7 +3,6 @@ import 'package:mobile/modules/auth/logic/auth.action.dart';
 import 'package:mobile/modules/auth/logic/auth.model.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
-import 'package:http/http.dart' as http;
 
 final Reducer<AuthState> authReducer =
     combineReducers(<AuthState Function(AuthState, dynamic)>[
@@ -25,6 +24,7 @@ ThunkAction usernamePasswordLogin(String username, String password) {
     } catch (e, stackTrace) {
       store.dispatch(SetLoading(false));
       print(e);
+      print(stackTrace);
     }
   };
 }

@@ -11,7 +11,7 @@ import 'package:redux_thunk/redux_thunk.dart';
 import 'package:redux_dev_tools/redux_dev_tools.dart';
 
 void main() async {
-  final remoteDevtools = RemoteDevToolsMiddleware('192.168.31.206:8000');
+  final remoteDevtools = RemoteDevToolsMiddleware('192.168.1.49:8000');
   await remoteDevtools.connect();
   final store = new DevToolsStore<AppState>(
     appReducer,
@@ -21,6 +21,7 @@ void main() async {
       remoteDevtools,
     ],
   );
+  remoteDevtools.store = store;
 
   runApp(MyApp(store: store));
 }
@@ -32,7 +33,7 @@ class Keys {
 class MyApp extends StatelessWidget {
   final Store<AppState> store;
 
-  MyApp({Key key, this.store}) : super(key: key);
+  MyApp({Key key, @required this.store}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
