@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:mobile/modules/configs/configs.service.dart';
-import 'package:mobile/modules/users/logic/users.model.dart';
+import 'package:mobile/modules/users/states/users.model.dart';
 import 'package:http/http.dart' as http;
 
 class UsersService {

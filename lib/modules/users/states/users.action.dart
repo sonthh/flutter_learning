@@ -1,4 +1,4 @@
-import 'package:mobile/modules/users/logic/users.model.dart';
+import 'package:mobile/modules/users/states/users.model.dart';
 
 /* user list result */
 class FindAllUserRequest {

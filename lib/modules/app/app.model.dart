@@ -1,5 +1,5 @@
-import 'package:mobile/modules/auth/logic/auth.model.dart';
-import 'package:mobile/modules/users/logic/users.model.dart';
+import 'package:mobile/modules/auth/states/auth.model.dart';
+import 'package:mobile/modules/users/states/users.model.dart';
 import 'package:meta/meta.dart';
 
 @immutable

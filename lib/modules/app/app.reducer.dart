@@ -1,7 +1,7 @@
 import 'package:mobile/modules/app/app.model.dart';
-import 'package:mobile/modules/auth/logic/auth.reducer.dart';
-import 'package:mobile/modules/users/logic/users_item.reducer.dart';
-import 'package:mobile/modules/users/logic/users_list.reducer.dart';
+import 'package:mobile/modules/auth/states/auth.reducer.dart';
+import 'package:mobile/modules/users/states/users_item.reducer.dart';
+import 'package:mobile/modules/users/states/users_list.reducer.dart';
 
 AppState appReducer(AppState state, dynamic action) {
   return AppState(

@@ -1,6 +1,6 @@
 import 'package:mobile/main.dart';
-import 'package:mobile/modules/auth/logic/auth.action.dart';
-import 'package:mobile/modules/auth/logic/auth.model.dart';
+import 'package:mobile/modules/auth/states/auth.action.dart';
+import 'package:mobile/modules/auth/states/auth.model.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 

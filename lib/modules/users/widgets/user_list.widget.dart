@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/modules/users/logic/users.model.dart';
+import 'package:mobile/modules/users/states/users.model.dart';
 import 'package:mobile/modules/users/screens/users_detail.screen.dart';
 
 class UserListWidget extends StatelessWidget {

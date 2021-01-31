@@ -1,6 +1,6 @@
 
-import 'package:mobile/modules/users/logic/users.action.dart';
-import 'package:mobile/modules/users/logic/users.model.dart';
+import 'package:mobile/modules/users/states/users.action.dart';
+import 'package:mobile/modules/users/states/users.model.dart';
 import 'package:mobile/modules/users/services/users.services.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';

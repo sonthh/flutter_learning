@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:mobile/modules/app/app.model.dart';
-import 'package:mobile/modules/auth/logic/auth.reducer.dart';
+import 'package:mobile/modules/auth/states/auth.reducer.dart';
 import 'package:redux/redux.dart';
 
 class ViewModel {
