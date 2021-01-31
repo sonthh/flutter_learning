@@ -5,7 +5,7 @@ import 'package:mobile/modules/app/app.model.dart';
 import 'package:mobile/modules/app/app.reducer.dart';
 import 'package:mobile/modules/app/app.routing.dart';
 import 'package:mobile/modules/auth/screens/login.screen.dart';
-import 'package:mobile/modules/configs/configs.dart';
+import 'package:mobile/modules/configs/configs.service.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_remote_devtools/redux_remote_devtools.dart';
 import 'package:redux_thunk/redux_thunk.dart';
