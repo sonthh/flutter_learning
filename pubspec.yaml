@@ -35,7 +35,7 @@ dependencies:
   redux_remote_devtools: ^2.0.0
   json_annotation: ^3.0.0
   flutter_slidable: ^0.5.7
-
+  firebase_messaging: ^7.0.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

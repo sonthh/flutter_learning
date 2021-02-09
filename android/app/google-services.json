@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "571154755286",
+    "project_id": "mobile-9bfae",
+    "storage_bucket": "mobile-9bfae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571154755286:android:d82d0a45d4b9d6b4352377",
+        "android_client_info": {
+          "package_name": "com.sontran.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571154755286-0v0j2laso41bkii5j47qk2ihck58qt9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCBirZrbd3Jo5k56RfIAaHQN29WHg6qKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571154755286-0v0j2laso41bkii5j47qk2ihck58qt9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
